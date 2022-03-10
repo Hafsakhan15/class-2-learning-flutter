@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/color.dart';
+import 'package:project/screens/home.dart';
 // import 'package:flutter/facebook.dart';
 
-class NewPage extends StatelessWidget {
-  NewPage({Key? key}) : super(key: key);
+class Signin extends StatelessWidget {
+  Signin({Key? key}) : super(key: key);
   final nameController = TextEditingController();
   final passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 214, 193, 200),
       appBar: AppBar(
-        title: const Text("HOME"),
-        backgroundColor: Color.fromARGB(255, 39, 95, 194),
+        title: const Text("SIGN IN "),
+        backgroundColor: red,
       ),
-      body: SafeArea(
+      body:
+      
+       SafeArea(
+        
         child: Padding(
-          padding: const EdgeInsets.all(100),
+          padding: const EdgeInsets.all(50),
           child: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Container(
-                  height: 100,
-                  width: 200,
-                  child: Image.asset("assets/facebook.jpg")),
+                  
               Container(
                 child: TextField(
                   controller: nameController,
@@ -30,7 +33,7 @@ class NewPage extends StatelessWidget {
                       border: OutlineInputBorder(),
                       hintText: "ENTER NAME",
                       labelText: "NAME",
-                      prefixIcon: Icon(Icons.security),
+                      prefixIcon: Icon(Icons.person),
                       suffixIcon: IconButton(
                           onPressed: () => nameController.clear(),
                           icon: const Icon(Icons.close))),
@@ -54,16 +57,15 @@ class NewPage extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => NewPage()));
+                        MaterialPageRoute(builder: (context) => Homepage()));
                   },
                   child: const Text(
                     " LOG IN ",
+                    style: TextStyle(color: red),
                     textAlign: TextAlign.justify,
-                   ),
-                   style:ElevatedButton.styleFrom(
-                      shadowColor: Colors.amber,
-                      shape: RoundedRectangleBorder(),
-                    ) ,
+                  ),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(white)),
                 ),
               ),
               Container(
@@ -72,7 +74,9 @@ class NewPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text(" GO BACK "),
+                  child: const Text(" GO BACK ", style: TextStyle(color: red)),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(white)),
                 ),
               ),
             ]),
@@ -81,7 +85,4 @@ class NewPage extends StatelessWidget {
       ),
     );
   }
-
-  
-  
 }
