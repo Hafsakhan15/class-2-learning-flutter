@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/color.dart';
-import 'package:project/screens/home.dart';
+import 'package:project/screens/homepage.dart';
 import 'package:project/screens/user.dart';
 
 class Splash extends StatefulWidget {
@@ -27,15 +27,15 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: SafeArea(
-            child: Center(
-              child: Container(
-                  height: 400,
-                  width: 400,
-                  child: Image.asset("assets/logo.jpg")),
-            ),
-          ),
-        ));
+      padding: const EdgeInsets.all(20),
+      child: SafeArea(
+        child: Center(
+          child: Container(
+              height: MediaQuery.of(context).size.height * 0.4,
+              width: MediaQuery.of(context).size.width * 0.4,
+              child: Image.asset("assets/carts.jpg")),
+        ),
+      ),
+    ));
   }
 }

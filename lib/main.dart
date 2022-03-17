@@ -1,24 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/MyAccount.dart';
 import 'package:project/screens/Welcome.dart';
-import 'package:project/screens/home.dart';
+import 'package:project/screens/homepage.dart';
+import 'package:project/screens/signup.dart';
 import 'package:project/screens/splash.dart';
+import 'package:project/screens/c1.dart';
+
 
 void main() {
   runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   MyApp({Key? key}) : super(key: key);
+   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
       
-      home: Homepage(),
+      home: Splash()
     );
   }
 }
+
+
+// TextButton(                      
+              //   style: const ButtonStyle(alignment: Alignment.center,),
+              //   onPressed: () {
+              //     Navigator.push(context,
+              //         MaterialPageRoute(builder: (context) => const Myaccount()));
+              //   },
+              //   child: Center(
+              //     child: Row(
+              //       children: const [
+              //         Text(
+              //           "My Details",
+              //           style: TextStyle(color: red),
+              //         ),
+              //         Icon(
+              //           Icons.person,
+              //           color: red,
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
 // drawer: Drawer(backgroundColor: Colors.pink,
 
       //   child: ListView(children: const [

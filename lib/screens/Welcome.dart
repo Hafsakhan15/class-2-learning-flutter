@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/screens/home.dart';
+import 'package:project/screens/homepage.dart';
 import 'package:project/screens/color.dart';
 
 class Welcome1 extends StatefulWidget {

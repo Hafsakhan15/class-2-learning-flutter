@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/info.dart';
+import 'package:project/screens/MyAccount.dart';
 import 'package:project/screens/color.dart';
-import 'package:project/screens/home.dart';
-// import 'package:flutter/facebook.dart';
+import 'package:project/screens/homepage.dart';
+import 'package:project/screens/models/profilepic.dart';
 
-class Signup extends StatelessWidget {
-  Signup ({Key? key}) : super(key: key);
-  final nameController = TextEditingController();
-  final passController = TextEditingController();
-  final emailController = TextEditingController();
+import 'info.dart';
+
+class Signup extends StatefulWidget {
+  const Signup({Key? key}) : super(key: key);
+
+  @override
+  State<Signup> createState() => _SignupState();
+}
+
+class _SignupState extends State<Signup> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+    TextEditingController noController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +35,35 @@ class Signup extends StatelessWidget {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Container(
-                child: TextField(
+                height: 100,
+                width: 100,
+                child:
+                    //
+                    CircleAvatar(
+                      backgroundColor: red,
+                        radius: 700,
+                        child: TextButton(
+                          onPressed: () {},
+                          style: ButtonStyle(),
+                          child: const Icon(
+                            Icons.photo_camera_back,
+                            color: white,
+                            
+                          ),
+                        )),
+              ),
+              const Text("ENTER A PROFILE PICTURE"),
+              const SizedBox(
+                height: 40,
+              ),
+              Container(
+                child: TextFormField(
+                  onChanged: (value) => setState(() => username = value),
                   controller: nameController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: "ENTER NAME",
-                      labelText: "User",
+                      labelText: "ENTER NAME",
+                      hintText: "User",
                       prefixIcon: Icon(Icons.person),
                       suffixIcon: IconButton(
                           onPressed: () => nameController.clear(),
@@ -37,28 +71,45 @@ class Signup extends StatelessWidget {
                 ),
               ),
               Container(
-                child: TextField(
-                  controller: passController,
+                child: TextFormField(
+                  onChanged: (value) => setState(() => userno = value),
+                  controller: noController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: "ENTER PASSWORD ",
-                      labelText: "*******",
-                      prefixIcon: Icon(Icons.security),
+                      labelText: "ENTER NUMBER ",
+                      hintText: "03**-*******",
+                      prefixIcon: Icon(Icons.phone),
                       suffixIcon: IconButton(
                           onPressed: () => passController.clear(),
                           icon: const Icon(Icons.close))),
                 ),
               ),
               Container(
-                child: TextField(
+                child: TextFormField(
+                  onChanged: (Value) {
+                    setState(() => useremail = Value);
+                  },
                   controller: emailController,
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: "ENTER EMAIL ",
-                      labelText: "User@eamil.com",
+                      labelText: "ENTER EMAIL ",
+                      hintText: "User@eamil.com",
                       prefixIcon: Icon(Icons.mail_outline),
                       suffixIcon: IconButton(
                           onPressed: () => emailController.clear(),
+                          icon: const Icon(Icons.close))),
+                ),
+              ),
+                Container(
+                child: TextFormField(
+                  controller: passController,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "ENTER PASSWORD ",
+                      hintText: "PASSWORD",
+                      prefixIcon: Icon(Icons.security),
+                      suffixIcon: IconButton(
+                          onPressed: () => passController.clear(),
                           icon: const Icon(Icons.close))),
                 ),
               ),
@@ -80,7 +131,7 @@ class Signup extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.all(10),
-                child: ElevatedButton(
+                child: OutlinedButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
